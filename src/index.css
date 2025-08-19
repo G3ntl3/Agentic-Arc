@@ -1,1 +1,5 @@
 @import "tailwindcss";
+
+.connectbtn{
+   background-image: linear-gradient( #0CDDF4,#016179); 
+}

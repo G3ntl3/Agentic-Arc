@@ -1,22 +1,19 @@
 import React from "react";
 import bgimg from "../assets/img/bgimg.png";
-import shiningbg from '../assets/img/shiningbg.jpg'
+import shiningbg from "../assets/img/shiningbg.jpg";
+import Topnav from "./Topnav";
 const Hero = () => {
   return (
     <div
-      div
-      className="bg-cover bg-center bg-no-repeat w-[100%] overflow-hidden lg:h-screen "
+      className="bg-cover bg-center bg-no-repeat w-[vw] overflow-hidden  lg:h-screen "
       style={{ backgroundImage: `url(${shiningbg})` }}
     >
       <div
-        className="bg-cover bg-center bg-no-repeat w-[1996px] ml-[-278.43px] overflow-hidden lg:h-screen "
+        className="bg-cover bg-center bg-no-repeat w-[100%] mt-5 opacity-30  overflow-hidden lg:h-screen "
         style={{ backgroundImage: `url(${bgimg})` }}
-      >
-        <div className="absolute inset-0 bg-emerald-950/70  "></div>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ducimus libero
-        enim dignissimos, numquam totam quidem fugiat ipsa earum placeat?
-        Aperiam, quia quo? Vitae totam ipsa vel corrupti repellendus neque nemo?
-        lorem6000
+      ></div>
+      <div className="  absolute inset-0 bg-emerald-950/70  ">
+        <Topnav className=" z-40 absolute  text-white" />
       </div>
     </div>
   );
