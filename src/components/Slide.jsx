@@ -120,26 +120,28 @@ function Slide() {
         >
           {slides.map((slide) => (
             <SwiperSlide key={slide.id}>
-              <div className="video-card">
-                <video
-                  src={slide.video}
-                  className="slide-video"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                />
+              <div className="video-container">
+                <div className="video-wrapper">
+                  <video
+                    src={slide.video}
+                    className="slide-video"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                  />
+                </div>
               </div>
             </SwiperSlide>
           ))}
           
           <div className="slider-controler">
-            <div className="swiper-button-prev slider-arrow">
+            {/* <div className="swiper-button-prev slider-arrow">
               <ion-icon name="arrow-back-outline"></ion-icon>
             </div>
             <div className="swiper-button-next slider-arrow">
               <ion-icon name="arrow-forward-outline"></ion-icon>
-            </div>
+            </div> */}
             <div className="swiper-pagination"></div>
           </div>
         </Swiper>
@@ -147,5 +149,4 @@ function Slide() {
     </div>
   );
 }
-
-export default Slide;
+export default Slide
