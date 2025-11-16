@@ -1,15 +1,18 @@
 import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react"; // if using React
+import react from "@vitejs/plugin-react";
 import { VitePWA } from "vite-plugin-pwa";
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   plugins: [
     tailwindcss(),
-
     react(),
+
     VitePWA({
       registerType: "autoUpdate",
+      workbox: {
+        maximumFileSizeToCacheInBytes: 5 * 1024 * 1024, // 🚀 allow up to 5MB files
+      },
       manifest: {
         name: "My PWA App",
         short_name: "PWAApp",
