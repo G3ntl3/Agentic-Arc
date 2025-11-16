@@ -1,0 +1,144 @@
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Autoplay } from "swiper";
+import "swiper/css";
+import "swiper/css/navigation";
+
+import faceless from "../assets/sevices/faceless.png";
+import faced from "../assets/sevices/faced.png";
+import extraservices from "../assets/sevices/extraservices.png";
+
+const services = [
+  {
+    title: "Faceless Videos",
+    image: faceless,
+    avatar: faceless,
+    features: [
+      "AI Voiceovers – Choose from a variety of realistic AI voices.",
+      "Customizable Avatars – Tailor avatars to match your brand identity.",
+    ],
+  },
+  {
+    title: "Faced Videos",
+    image: faced,
+    avatar: faced,
+    features: [
+      "High-Quality Recording Assistance – Guidance on setting up professional lighting, sound, and framing.",
+      "Custom Script Writing – Professionally written scripts to match your brand.",
+    ],
+  },
+  {
+    title: "Extra Services",
+    image: extraservices,
+    avatar: extraservices,
+    features: [
+      "Brand Strategy Consultation – One-on-one sessions to refine your digital identity.",
+      "SEO-Optimized Captions & Tags – Improve visibility and reach.",
+    ],
+  },
+];
+
+// Reusable Service Card Component
+const ServiceCard = ({ service }) => {
+  return (
+    <div
+      className="rounded-2xl overflow-hidden flex flex-col justify-between h-full min-h-[500px]"
+      style={{
+        background:
+          "linear-gradient(180deg, #0a6b51 0%, #022b20 60%, #021b15 100%)",
+        border: "1px solid rgba(61,220,151,0.12)",
+        boxShadow: "0 12px 40px rgba(2,8,6,0.6)",
+        backdropFilter: "blur(6px)",
+      }}
+    >
+      <div className="relative flex-shrink-0">
+        <img
+          src={service.image}
+          alt={service.title}
+          className="w-full p-3 h-48 md:h-52 object-cover rounded-t-2xl"
+        />
+        <div className="absolute left-2 bottom-2">
+          <img
+            src={service.avatar || service.image}
+            alt={`${service.title} avatar`}
+            className="w-12 h-12 rounded-full border-2 border-[#168bda] object-cover"
+          />
+        </div>
+      </div>
+
+      <div className="pt-1 pb-6 px-6 flex-1">
+        <h3 className="text-[20px] font-semibold text-[#00e6a5] mb-2">
+          {service.title}
+        </h3>
+
+        <span className="inline-block text-xs px-3 py-1 rounded-full bg-[#2b6435d7] text-[#bfe9de] mb-4">
+          Features
+        </span>
+
+        <ul className="space-y-3 mt-3">
+          {service.features.map((f, i) => (
+            <li
+              key={i}
+              className="flex items-start gap-3 text-sm leading-tight text-[#d8efe6]"
+            >
+              <span className="flex-shrink-0 w-6 h-6 flex items-center justify-center rounded-full bg-[#032a23] border border-[#0b4f3f] text-[#35e3a0] mt-1">
+                ✓
+              </span>
+              <span className="flex-1">{f}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="px-6 pb-6">
+        <button className="w-full py-2 border border-[#18d9a0] text-[#18d9a0] bg-transparent rounded-2xl hover:bg-[#afbe9150] hover:text-white transition transform-fill ">
+          Learn More →
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default function Service() {
+  return (
+    <>
+      <div className="text-center glowtext gradient-text mt-20 lg:text-4xl">
+        Our Services
+      </div>
+      <div className="text-white lg:text-3xl font-extralight text-center mb-15">
+        Explore services tailored to your needs
+      </div>
+
+      <section className="bg-[#011e1c] px-4">
+        {/* Mobile Carousel */}
+        <div className="block md:hidden py-6">
+          <Swiper
+            modules={[Navigation, Autoplay]}
+            navigation
+            autoplay={{ delay: 3000, disableOnInteraction: false }}
+            loop={true}
+            spaceBetween={20}
+            slidesPerView={1}
+            className="w-full"
+            style={{ paddingBottom: '60px' }}
+          >
+            {services.map((service, index) => (
+              <SwiperSlide key={index} style={{ height: 'auto' }}>
+                <ServiceCard service={service} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+
+        {/* Desktop Grid */}
+        <div className="hidden md:block px-20 bg-services min-h-screen">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, idx) => (
+              <ServiceCard key={idx} service={service} />
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}

@@ -1,72 +1,138 @@
-import React from 'react'
-import voteicon from "../assets/icon/vote.svg"
+import React, { useState } from "react";
+import logo from '../assets/img/logo.png'
+import './navbar.css'
+
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
+
   return (
     <>
-      {/* Sticky Bottom Navigation */}
-      <div className="fixed bottom-0 z-50  left-0 right-0  ">
-        <div className="flex justify-center items-center   py-4">
-          <div className="flex bg-white/10 backdrop-blur-md gap-10 py-3 px-10 rounded-2xl p-1">
-            {/* Education Hub Button */}
-            <button className="bg-[#005466] text-white px-6 py-3 rounded-2xl  flex items-center space-x-2">
-              <svg
-                className="w-7 h-7"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-                ></path>
-              </svg>
-              <span className="text-xl">Education Hub</span>
+      {/* Navbar */}
+      <nav className="navbg py-3 px-4 lg:px-12 relative z-50 red">
+        <div className="max-w-[1400px] mx-auto flex items-center justify-between lg:bg-gradient-to-r lg:from-[#0a2f2a]/40 lg:to-[#0d3d35]/40 lg:backdrop-blur-sm border lg:border-2 lg:border-cyan-500/30 lg:rounded-full px-4 lg:px-6 py-3 lg:shadow-[0_0_30px_rgba(6,182,212,0.15)]">
+          {/* Logo */}
+          <div className="flex items-center gap-2">
+            <img src={logo} alt="ARC Logo" className="w-8 h-8 lg:w-10 lg:h-10" />
+            <div className="flex flex-col leading-none">
+              <span className="text-[10px] text-cyan-400 font-light">The Agentic</span>
+              <span className="text-base lg:text-xl font-bold text-white">ARC</span>
+            </div>
+          </div>
+
+          {/* Desktop Navigation Links */}
+          <div className="hidden lg:flex items-center gap-10 text-white text-sm">
+            <a href="#" className="hover:text-cyan-400 transition-colors duration-200 font-medium">Home</a>
+            <a href="#" className="hover:text-cyan-400 transition-colors duration-200">About Us</a>
+            <a href="#" className="hover:text-cyan-400 transition-colors duration-200">Education Hub</a>
+            <a href="#" className="hover:text-cyan-400 transition-colors duration-200">Services</a>
+          </div>
+
+          {/* Desktop Buttons */}
+          <div className="hidden lg:flex items-center gap-3">
+            <button className="px-6 py-2.5 bg-cyan-400 text-black rounded-full hover:bg-cyan-300 hover:shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-all duration-200 font-semibold text-sm">
+              Get Started →
             </button>
-
-            {/* Voting Button */}
-            <button className=" text-white px-6 py-3 rounded-md font-medium flex items-center space-x-2">
-              {/* <svg
-                className="w-7 h-7"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
-                ></path>
-              </svg> */}
-              <img src={voteicon} alt="voting" />
-
-              <span className="text-xl">Voting</span>
+            <button className="px-6 py-2.5 border-2 border-cyan-400 text-cyan-400 rounded-full hover:bg-cyan-400/10 hover:shadow-[0_0_20px_rgba(6,182,212,0.3)] transition-all duration-200 font-semibold text-sm">
+              Login →
             </button>
+          </div>
 
-            {/* Services Button */}
-            <button className=" text-white px-6 py-3 rounded-md font-medium flex items-center space-x-2">
-              <svg
-                className="w-7 h-7"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
-                ></path>
-              </svg>
-              <span className="text-xl">Services</span>
+          {/* Mobile Hamburger Button */}
+          <button 
+            onClick={toggleMenu}
+            className="lg:hidden flex flex-col gap-1.5 z-50 p-1"
+            aria-label="Toggle menu"
+          >
+            <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
+            <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${isOpen ? 'opacity-0' : ''}`}></span>
+            <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+          </button>
+        </div>
+      </nav>
+
+      {/* Mobile Overlay */}
+      {isOpen && (
+        <div 
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 lg:hidden"
+          onClick={closeMenu}
+        ></div>
+      )}
+
+      {/* Mobile Sidebar Menu */}
+      <div 
+        className={`fixed top-0 left-0 h-full w-[280px] bg-gradient-to-b from-[#0a2f2a] to-[#051b17] border-r border-cyan-500/30 shadow-[0_0_50px_rgba(6,182,212,0.2)] z-50 transform transition-transform duration-300 ease-in-out lg:hidden ${
+          isOpen ? 'translate-x-0' : '-translate-x-full'
+        }`}
+      >
+        <div className="flex flex-col h-full p-6">
+          {/* Logo in Sidebar */}
+          <div className="flex items-center gap-2 mb-10 pb-6 border-b border-cyan-500/20">
+            <img src={logo} alt="ARC Logo" className="w-10 h-10" />
+            {/* <div className="flex flex-col leading-none">
+              <span className="text-xs text-cyan-400 font-light">The Agentic</span>
+              <span className="text-xl font-bold text-white">ARC</span>
+            </div> */}
+          </div>
+
+          {/* Mobile Navigation Links */}
+          <div className="flex flex-col gap-5 mb-8 text-white">
+            <a 
+              href="#" 
+              onClick={closeMenu}
+              className="text-base hover:text-cyan-400 transition-colors duration-200 py-2 border-b border-cyan-500/10 hover:border-cyan-400/30"
+            >
+              Home
+            </a>
+            <a 
+              href="#" 
+              onClick={closeMenu}
+              className="text-base hover:text-cyan-400 transition-colors duration-200 py-2 border-b border-cyan-500/10 hover:border-cyan-400/30"
+            >
+              About Us
+            </a>
+            <a 
+              href="#" 
+              onClick={closeMenu}
+              className="text-base hover:text-cyan-400 transition-colors duration-200 py-2 border-b border-cyan-500/10 hover:border-cyan-400/30"
+            >
+              Education Hub
+            </a>
+            <a 
+              href="#" 
+              onClick={closeMenu}
+              className="text-base hover:text-cyan-400 transition-colors duration-200 py-2 border-b border-cyan-500/10 hover:border-cyan-400/30"
+            >
+              Services
+            </a>
+          </div>
+
+          {/* Mobile Buttons */}
+          <div className="flex flex-col gap-4 mt-auto">
+            <button 
+              onClick={closeMenu}
+              className="w-full px-5 py-3 bg-cyan-400 text-black rounded-full hover:bg-cyan-300 hover:shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-all duration-200 font-semibold"
+            >
+              Get Started →
+            </button>
+            <button 
+              onClick={closeMenu}
+              className="w-full px-5 py-3 border-2 border-cyan-400 text-cyan-400 rounded-full hover:bg-cyan-400/10 hover:shadow-[0_0_20px_rgba(6,182,212,0.3)] transition-all duration-200 font-semibold"
+            >
+              Login →
             </button>
           </div>
         </div>
       </div>
     </>
   );
-}
+};
 
-export default Navbar
+export default Navbar;

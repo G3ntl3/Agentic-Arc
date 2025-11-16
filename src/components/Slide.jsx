@@ -6,7 +6,7 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-import shiningbg from "../assets/img/shiningbg.jpg";
+// import shiningbg from "../assets/img/shiningbg.jpg";
 import "./Slide.css";
 
 // Video imports
