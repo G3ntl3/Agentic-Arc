@@ -6,7 +6,7 @@ import Connect from "./Connect";
 import Disconnect from "./Disconnect";
 
 const Navbar = () => {
- const { ready, authenticated } = usePrivy();
+ const { ready, authenticated, user } = usePrivy();
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -39,15 +39,12 @@ const Navbar = () => {
 
           {/* Desktop Buttons */}
           <div className="hidden lg:flex items-center gap-3">
-            {/* <button className="px-6 py-2.5 bg-cyan-400 text-black rounded-full hover:bg-cyan-300 hover:shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-all duration-200 font-semibold text-sm">
-              Get Started →
-            </button>
-            <button className="px-6 py-2.5 border-2 border-cyan-400 text-cyan-400 rounded-full hover:bg-cyan-400/10 hover:shadow-[0_0_20px_rgba(6,182,212,0.3)] transition-all duration-200 font-semibold text-sm">
-              Login →
-            </button> */}
-               {
-             authenticated?<Disconnect/>:<Connect/>
-            }
+            {authenticated && (
+              <div className="text-sm font-bold px-3 py-2 rounded-2xl bg-white text-green-400">
+                {user?.wallet?.address ? `${user.wallet.address.slice(0, 6)}...${user.wallet.address.slice(-4)}` : ''}
+              </div>
+            )}
+            {authenticated ? <Disconnect /> : <Connect />}
           </div>
 
           {/* Mobile Hamburger Button */}
@@ -121,21 +118,12 @@ const Navbar = () => {
 
           {/* Mobile Buttons */}
           <div className="flex flex-col gap-4 mt-auto">
-            {/* <button 
-              onClick={closeMenu}
-              className="w-full px-5 py-3 bg-cyan-400 text-black rounded-full hover:bg-cyan-300 hover:shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-all duration-200 font-semibold"
-            >
-              Get Started →
-            </button>
-            <button 
-              onClick={closeMenu}
-              className="w-full px-5 py-3 border-2 border-cyan-400 text-cyan-400 rounded-full hover:bg-cyan-400/10 hover:shadow-[0_0_20px_rgba(6,182,212,0.3)] transition-all duration-200 font-semibold"
-            >
-              Login →
-            </button> */}
-                 {
-             authenticated?<Disconnect/>:<Connect/>
-            }
+            {authenticated && (
+              <div className="text-sm font-bold px-3 py-2 rounded-2xl bg-white text-green-400 text-center">
+                {user?.wallet?.address ? `${user.wallet.address.slice(0, 6)}...${user.wallet.address.slice(-4)}` : ''}
+              </div>
+            )}
+            {authenticated ? <Disconnect /> : <Connect />}
           </div>
         </div>
       </div>
