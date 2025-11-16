@@ -102,14 +102,14 @@ const ServiceCard = ({ service }) => {
 export default function Service() {
   return (
     <>
-      <div className="text-center glowtext gradient-text mt-20 lg:text-4xl">
+      <div className="text-center glowtext gradient-text mt-20 text-3xl lg:text-4xl">
         Our Services
       </div>
-      <div className="text-white lg:text-3xl font-extralight text-center mb-15">
+      <div className="text-white lg:text-3xl font-extralight text-center mb-3">
         Explore services tailored to your needs
       </div>
 
-      <section className="bg-[#011e1c] px-4">
+      <section className=" px-4">
         {/* Mobile Carousel */}
         <div className="block md:hidden py-6">
           <Swiper
@@ -120,7 +120,7 @@ export default function Service() {
             spaceBetween={20}
             slidesPerView={1}
             className="w-full"
-            style={{ paddingBottom: '60px' }}
+            style={{ paddingBottom: '60px', color:"red !important" }}
           >
             {services.map((service, index) => (
               <SwiperSlide key={index} style={{ height: 'auto' }}>

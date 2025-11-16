@@ -18,15 +18,13 @@ const Story = () => {
         },
         {
             image:vidpng
-        },
-        {
+        },       {
             image:vidpng2
-        },
-    ]
+        },   ]
     
   return (
     <>
-      <div className="text-center glowtext gradient-text lg:text-4xl">
+      <div className="text-center glowtext gradient-text text-3xl lg:text-4xl">
         Fast Storytelling
       </div>
       <div className="text-white lg:text-4xl font-semibold my-2 text-center">

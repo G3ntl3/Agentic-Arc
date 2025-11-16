@@ -2,7 +2,7 @@ import React from "react";
 import about from "../assets/img/about.png";
 const About = () => {
   return (
-    <div className="px-5">
+    <div className="px-5 mt-20 lg:mt-0">
       <div className="text-center glowtext gradient-text text-2xl lg:text-4xl">
         About Us
       </div>

@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 import logo from '../assets/img/logo.png'
 import './navbar.css'
+import { usePrivy } from "@privy-io/react-auth";
+import Connect from "./Connect";
+import Disconnect from "./Disconnect";
 
 const Navbar = () => {
+ const { ready, authenticated } = usePrivy();
+
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -16,15 +21,12 @@ const Navbar = () => {
   return (
     <>
       {/* Navbar */}
-      <nav className="navbg py-3 px-4 lg:px-12 relative z-50 red">
-        <div className="max-w-[1400px] mx-auto flex items-center justify-between lg:bg-gradient-to-r lg:from-[#0a2f2a]/40 lg:to-[#0d3d35]/40 lg:backdrop-blur-sm border lg:border-2 lg:border-cyan-500/30 lg:rounded-full px-4 lg:px-6 py-3 lg:shadow-[0_0_30px_rgba(6,182,212,0.15)]">
+      <nav className="py-3 px-4 lg:px-12 z-50 fixed top-0 left-0 w-full shadow-md">
+        <div className="max-w-[1400px] mx-auto flex items-center justify-between lg:bg-gradient-to-r lg:from-[#0a2f2a]/40 lg:to-[#0d3d35]/40 lg:backdrop-blur-sm lg:border lg:border-cyan-500/30 lg:rounded-full px-4 lg:px-6 py-3 lg:shadow-[0_0_30px_rgba(6,182,212,0.15)]">
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <img src={logo} alt="ARC Logo" className="w-8 h-8 lg:w-10 lg:h-10" />
-            <div className="flex flex-col leading-none">
-              <span className="text-[10px] text-cyan-400 font-light">The Agentic</span>
-              <span className="text-base lg:text-xl font-bold text-white">ARC</span>
-            </div>
+            <img src={logo} alt="ARC Logo" className="w-full h-8 lg:w-full lg:h-10" />
+            
           </div>
 
           {/* Desktop Navigation Links */}
@@ -37,12 +39,15 @@ const Navbar = () => {
 
           {/* Desktop Buttons */}
           <div className="hidden lg:flex items-center gap-3">
-            <button className="px-6 py-2.5 bg-cyan-400 text-black rounded-full hover:bg-cyan-300 hover:shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-all duration-200 font-semibold text-sm">
+            {/* <button className="px-6 py-2.5 bg-cyan-400 text-black rounded-full hover:bg-cyan-300 hover:shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-all duration-200 font-semibold text-sm">
               Get Started →
             </button>
             <button className="px-6 py-2.5 border-2 border-cyan-400 text-cyan-400 rounded-full hover:bg-cyan-400/10 hover:shadow-[0_0_20px_rgba(6,182,212,0.3)] transition-all duration-200 font-semibold text-sm">
               Login →
-            </button>
+            </button> */}
+               {
+             authenticated?<Disconnect/>:<Connect/>
+            }
           </div>
 
           {/* Mobile Hamburger Button */}
@@ -76,10 +81,10 @@ const Navbar = () => {
           {/* Logo in Sidebar */}
           <div className="flex items-center gap-2 mb-10 pb-6 border-b border-cyan-500/20">
             <img src={logo} alt="ARC Logo" className="w-10 h-10" />
-            {/* <div className="flex flex-col leading-none">
+            <div className="flex flex-col leading-none">
               <span className="text-xs text-cyan-400 font-light">The Agentic</span>
               <span className="text-xl font-bold text-white">ARC</span>
-            </div> */}
+            </div>
           </div>
 
           {/* Mobile Navigation Links */}
@@ -116,7 +121,7 @@ const Navbar = () => {
 
           {/* Mobile Buttons */}
           <div className="flex flex-col gap-4 mt-auto">
-            <button 
+            {/* <button 
               onClick={closeMenu}
               className="w-full px-5 py-3 bg-cyan-400 text-black rounded-full hover:bg-cyan-300 hover:shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-all duration-200 font-semibold"
             >
@@ -127,7 +132,10 @@ const Navbar = () => {
               className="w-full px-5 py-3 border-2 border-cyan-400 text-cyan-400 rounded-full hover:bg-cyan-400/10 hover:shadow-[0_0_20px_rgba(6,182,212,0.3)] transition-all duration-200 font-semibold"
             >
               Login →
-            </button>
+            </button> */}
+                 {
+             authenticated?<Disconnect/>:<Connect/>
+            }
           </div>
         </div>
       </div>
@@ -135,4 +143,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Navbar
