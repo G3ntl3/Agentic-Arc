@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import logo from '../assets/img/logo.png';
 import './navbar.css';
 import { usePrivy } from "@privy-io/react-auth";
-import { useNavigate, NavLink } from 'react-router-dom'; // Added NavLink import
+import { useNavigate, NavLink, Link } from 'react-router-dom'; // Added NavLink and Link import
 import Connect from "./Connect";
 import Disconnect from "./Disconnect";
 
@@ -41,15 +41,13 @@ const Navbar = () => {
             >
               Home
             </NavLink>
-            <NavLink 
-              to="/about" 
-              className={({ isActive }) => 
-                `hover:text-cyan-400 transition-colors duration-200 font-medium ${isActive ? 'text-cyan-400' : ''}`
-              }
+            <Link
+              to="/#about"
+              className="hover:text-cyan-400 transition-colors duration-200 font-medium"
               onClick={closeMenu}
             >
               About Us
-            </NavLink>
+            </Link>
             <NavLink 
               to="/education" 
               className={({ isActive }) => 
@@ -59,15 +57,13 @@ const Navbar = () => {
             >
               Education Hub
             </NavLink>
-            <NavLink 
-              to="/services" 
-              className={({ isActive }) => 
-                `hover:text-cyan-400 transition-colors duration-200 font-medium ${isActive ? 'text-cyan-400' : ''}`
-              }
+            <Link
+              to="/#services"
+              className="hover:text-cyan-400 transition-colors duration-200 font-medium"
               onClick={closeMenu}
             >
               Services
-            </NavLink>
+            </Link>
           </div>
 
           {/* Desktop Buttons */}
@@ -125,15 +121,13 @@ const Navbar = () => {
             >
               Home
             </NavLink>
-            <NavLink 
-              to="/about" 
-              className={({ isActive }) => 
-                `text-base hover:text-cyan-400 transition-colors duration-200 py-2 border-b border-cyan-500/10 hover:border-cyan-400/30 ${isActive ? 'text-cyan-400 border-cyan-400/30' : ''}`
-              }
+            <Link
+              to="/#about"
+              className="text-base hover:text-cyan-400 transition-colors duration-200 py-2 border-b border-cyan-500/10 hover:border-cyan-400/30"
               onClick={closeMenu}
             >
               About Us
-            </NavLink>
+            </Link>
             <NavLink 
               to="/education" 
               className={({ isActive }) => 
@@ -143,15 +137,13 @@ const Navbar = () => {
             >
               Education Hub
             </NavLink>
-            <NavLink 
-              to="/services" 
-              className={({ isActive }) => 
-                `text-base hover:text-cyan-400 transition-colors duration-200 py-2 border-b border-cyan-500/10 hover:border-cyan-400/30 ${isActive ? 'text-cyan-400 border-cyan-400/30' : ''}`
-              }
+            <Link
+              to="/#services"
+              className="text-base hover:text-cyan-400 transition-colors duration-200 py-2 border-b border-cyan-500/10 hover:border-cyan-400/30"
               onClick={closeMenu}
             >
               Services
-            </NavLink>
+            </Link>
           </div>
 
           {/* Mobile Buttons */}
