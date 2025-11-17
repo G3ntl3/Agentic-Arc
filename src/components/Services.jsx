@@ -42,7 +42,7 @@ const services = [
 const ServiceCard = ({ service }) => {
   return (
     <div
-      className="rounded-2xl overflow-hidden flex flex-col justify-between h-full min-h-[500px]"
+      className="rounded-2xl overflow-hidden lg:mt-5 flex flex-col justify-between h-full min-h-[500px]"
       style={{
         background:
           "linear-gradient(180deg, #0a6b51 0%, #022b20 60%, #021b15 100%)",
@@ -99,13 +99,13 @@ const ServiceCard = ({ service }) => {
   );
 };
 
-export default function Service() {
+export default function Services() {
   return (
     <>
-      <div className="text-center glowtext gradient-text mt-20 text-3xl lg:text-4xl">
+      <div className="text-center glowtext gradient-text mt-20 lg:mt-30 text-3xl lg:text-4xl">
         Our Services
       </div>
-      <div className="text-white lg:text-3xl font-extralight text-center mb-3">
+      <div className="text-white lg:text-3xl font-extralight text-center mb-3 lg:mb-5">
         Explore services tailored to your needs
       </div>
 

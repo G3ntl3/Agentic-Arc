@@ -13,7 +13,7 @@ const Hero = () => {
     <>
       <div className="flex lg:flex-row flex-col-reverse items-center justify-center pb-10 lg:px-10 md:px-6 px-2 lg:py-10 md:py-5 py-0 mx-auto h-[100vh] lg:mt-10 md:mt-5 mt-0">
         <div className="w-[100%] lg:w-[60%] md:w-[80%] lg:mb-0 mb-16 text-center">
-          <div className="flex flex-col lg:space-y-2 md:space-y-1 space-y-0 lg:mb-10 md:mb-6 mb-4 items-center">
+          <div className="flex flex-col lg:space-y-2 md:space-y-1 space-y-0 lg:mb-10 md:mb-6 mb-4 items-center lg:items-start">
             <div className="gradient-text bg-gradient-to-r pb-2 from-[#00BFA6] to-[#016179] text-2xl md:text-4xl lg:text-5xl text-start font-bold glowtext">
               Telling the Stories of the AI
             </div>

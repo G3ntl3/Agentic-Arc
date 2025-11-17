@@ -1,12 +1,14 @@
 import React, { useState } from "react";
-import logo from '../assets/img/logo.png'
-import './navbar.css'
+import logo from '../assets/img/logo.png';
+import './navbar.css';
 import { usePrivy } from "@privy-io/react-auth";
+import { useNavigate, NavLink } from 'react-router-dom'; // Added NavLink import
 import Connect from "./Connect";
 import Disconnect from "./Disconnect";
 
 const Navbar = () => {
- const { ready, authenticated, user } = usePrivy();
+  const navigate = useNavigate();
+  const { ready, authenticated, user } = usePrivy();
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -23,18 +25,49 @@ const Navbar = () => {
       {/* Navbar */}
       <nav className="py-3 px-4 lg:px-12 z-50 fixed top-0 left-0 w-full shadow-md">
         <div className="max-w-[1400px] mx-auto flex items-center justify-between lg:bg-gradient-to-r lg:from-[#0a2f2a]/40 lg:to-[#0d3d35]/40 lg:backdrop-blur-sm lg:border lg:border-cyan-500/30 lg:rounded-full px-4 lg:px-6 py-3 lg:shadow-[0_0_30px_rgba(6,182,212,0.15)]">
-          {/* Logo */}
-          <div className="flex items-center gap-2">
+          {/* Logo - Wrapped in NavLink for home navigation */}
+          <NavLink to="/" className="flex items-center gap-2" onClick={closeMenu}>
             <img src={logo} alt="ARC Logo" className="w-full h-8 lg:w-full lg:h-10" />
-            
-          </div>
+          </NavLink>
 
           {/* Desktop Navigation Links */}
           <div className="hidden lg:flex items-center gap-10 text-white text-sm">
-            <a href="#" className="hover:text-cyan-400 transition-colors duration-200 font-medium">Home</a>
-            <a href="#" className="hover:text-cyan-400 transition-colors duration-200">About Us</a>
-            <a href="#" className="hover:text-cyan-400 transition-colors duration-200">Education Hub</a>
-            <a href="#" className="hover:text-cyan-400 transition-colors duration-200">Services</a>
+            <NavLink 
+              to="/" 
+              className={({ isActive }) => 
+                `hover:text-cyan-400 transition-colors duration-200 font-medium ${isActive ? 'text-cyan-400' : ''}`
+              }
+              onClick={closeMenu}
+            >
+              Home
+            </NavLink>
+            <NavLink 
+              to="/about" 
+              className={({ isActive }) => 
+                `hover:text-cyan-400 transition-colors duration-200 font-medium ${isActive ? 'text-cyan-400' : ''}`
+              }
+              onClick={closeMenu}
+            >
+              About Us
+            </NavLink>
+            <NavLink 
+              to="/education" 
+              className={({ isActive }) => 
+                `hover:text-cyan-400 transition-colors duration-200 font-medium ${isActive ? 'text-cyan-400' : ''}`
+              }
+              onClick={closeMenu}
+            >
+              Education Hub
+            </NavLink>
+            <NavLink 
+              to="/services" 
+              className={({ isActive }) => 
+                `hover:text-cyan-400 transition-colors duration-200 font-medium ${isActive ? 'text-cyan-400' : ''}`
+              }
+              onClick={closeMenu}
+            >
+              Services
+            </NavLink>
           </div>
 
           {/* Desktop Buttons */}
@@ -75,45 +108,53 @@ const Navbar = () => {
         }`}
       >
         <div className="flex flex-col h-full p-6">
-          {/* Logo in Sidebar */}
-          <div className="flex items-center gap-2 mb-10 pb-6 border-b border-cyan-500/20">
+          {/* Logo in Sidebar - Wrapped in NavLink for home navigation */}
+          <NavLink to="/" className="flex items-center gap-2 mb-10 pb-6 border-b border-cyan-500/20" onClick={closeMenu}>
             <img src={logo} alt="ARC Logo" className="w-10 h-10" />
             <div className="flex flex-col leading-none">
               <span className="text-xs text-cyan-400 font-light">The Agentic</span>
               <span className="text-xl font-bold text-white">ARC</span>
             </div>
-          </div>
+          </NavLink>
 
           {/* Mobile Navigation Links */}
           <div className="flex flex-col gap-5 mb-8 text-white">
-            <a 
-              href="#" 
+            <NavLink 
+              to="/" 
+              className={({ isActive }) => 
+                `text-base hover:text-cyan-400 transition-colors duration-200 py-2 border-b border-cyan-500/10 hover:border-cyan-400/30 ${isActive ? 'text-cyan-400 border-cyan-400/30' : ''}`
+              }
               onClick={closeMenu}
-              className="text-base hover:text-cyan-400 transition-colors duration-200 py-2 border-b border-cyan-500/10 hover:border-cyan-400/30"
             >
               Home
-            </a>
-            <a 
-              href="#" 
+            </NavLink>
+            <NavLink 
+              to="/about" 
+              className={({ isActive }) => 
+                `text-base hover:text-cyan-400 transition-colors duration-200 py-2 border-b border-cyan-500/10 hover:border-cyan-400/30 ${isActive ? 'text-cyan-400 border-cyan-400/30' : ''}`
+              }
               onClick={closeMenu}
-              className="text-base hover:text-cyan-400 transition-colors duration-200 py-2 border-b border-cyan-500/10 hover:border-cyan-400/30"
             >
               About Us
-            </a>
-            <a 
-              href="#" 
+            </NavLink>
+            <NavLink 
+              to="/education" 
+              className={({ isActive }) => 
+                `text-base hover:text-cyan-400 transition-colors duration-200 py-2 border-b border-cyan-500/10 hover:border-cyan-400/30 ${isActive ? 'text-cyan-400 border-cyan-400/30' : ''}`
+              }
               onClick={closeMenu}
-              className="text-base hover:text-cyan-400 transition-colors duration-200 py-2 border-b border-cyan-500/10 hover:border-cyan-400/30"
             >
               Education Hub
-            </a>
-            <a 
-              href="#" 
+            </NavLink>
+            <NavLink 
+              to="/services" 
+              className={({ isActive }) => 
+                `text-base hover:text-cyan-400 transition-colors duration-200 py-2 border-b border-cyan-500/10 hover:border-cyan-400/30 ${isActive ? 'text-cyan-400 border-cyan-400/30' : ''}`
+              }
               onClick={closeMenu}
-              className="text-base hover:text-cyan-400 transition-colors duration-200 py-2 border-b border-cyan-500/10 hover:border-cyan-400/30"
             >
               Services
-            </a>
+            </NavLink>
           </div>
 
           {/* Mobile Buttons */}
@@ -131,4 +172,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar
+export default Navbar;
