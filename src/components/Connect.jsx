@@ -10,7 +10,7 @@ const Connect = () => {
   if (authenticated) {
     const wallet_address = user?.wallet?.address.trim();
     return (
-      <div className='text-sm font-bold p-2 rounded-2xl  bg-white text-green-400  transition-all duration-300 ease-in-out hover:shadow-lg hover:shadow-cyan-500/50'>
+      <div className='text-sm font-bold p-2 rounded-2xl  bg-white/10 text-green-400  transition-all duration-300 ease-in-out hover:shadow-lg hover:shadow-cyan-500/50'>
          {shortenAddress(wallet_address)}
       </div>
     )

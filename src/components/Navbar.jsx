@@ -73,7 +73,7 @@ const Navbar = () => {
           {/* Desktop Buttons */}
           <div className="hidden lg:flex items-center gap-3">
             {authenticated && (
-              <div className="text-sm font-bold px-3 py-2 rounded-2xl bg-white text-green-400">
+              <div className="text-sm font-bold px-3 py-2 rounded-2xl bg-white/10 text-green-400">
                 {user?.wallet?.address ? `${user.wallet.address.slice(0, 6)}...${user.wallet.address.slice(-4)}` : ''}
               </div>
             )}
@@ -110,11 +110,8 @@ const Navbar = () => {
         <div className="flex flex-col h-full p-6">
           {/* Logo in Sidebar - Wrapped in NavLink for home navigation */}
           <NavLink to="/" className="flex items-center gap-2 mb-10 pb-6 border-b border-cyan-500/20" onClick={closeMenu}>
-            <img src={logo} alt="ARC Logo" className="w-10 h-10" />
-            <div className="flex flex-col leading-none">
-              <span className="text-xs text-cyan-400 font-light">The Agentic</span>
-              <span className="text-xl font-bold text-white">ARC</span>
-            </div>
+            <img src={logo} alt="ARC Logo" className=" h-10" />
+   
           </NavLink>
 
           {/* Mobile Navigation Links */}
@@ -160,7 +157,7 @@ const Navbar = () => {
           {/* Mobile Buttons */}
           <div className="flex flex-col gap-4 mt-auto">
             {authenticated && (
-              <div className="text-sm font-bold px-3 py-2 rounded-2xl bg-white text-green-400 text-center">
+              <div className="text-sm font-bold px-3 py-2 rounded-2xl bg-white/10 text-green-400 text-center">
                 {user?.wallet?.address ? `${user.wallet.address.slice(0, 6)}...${user.wallet.address.slice(-4)}` : ''}
               </div>
             )}

@@ -27,13 +27,13 @@ const plans = [
 
 const EducationHub = () => {
   return (
-    <div className="w-full py-16 px-4 md:px-10 bg-[#020b0a] text-white">
+    <div className="w-full py-16 px-4 md:px-10 bg-[#020b0a] text-white red lg:mt-10">
       {/* Header */}
-      <div className="text-center mb-14">
-        <h2 className="text-3xl md:text-4xl font-semibold glowtext">
+      <div className="text-center mb-14 ">
+        <h2 className="text-3xl md:text-4xl font-semibold gradient-text">
           Education Hub
         </h2>
-        <p className="text-gray-300 mt-2 text-lg">
+        <p className="text-gray-300 mt-2 text-lg lg:text-3xl">
           Learn, grow, and stay ahead with AI-driven insights.
         </p>
       </div>

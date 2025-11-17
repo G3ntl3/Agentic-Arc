@@ -102,7 +102,7 @@ const ServiceCard = ({ service }) => {
 export default function Services() {
   return (
     <>
-      <div className="text-center glowtext gradient-text mt-20 lg:mt-30 text-3xl lg:text-4xl">
+      <div className="text-center glowtext gradient-text mt-20 lg:mt-25 text-3xl lg:text-4xl">
         Our Services
       </div>
       <div className="text-white lg:text-3xl font-extralight text-center mb-3 lg:mb-5">
