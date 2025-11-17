@@ -27,7 +27,7 @@ const plans = [
 
 const EducationHub = () => {
   return (
-    <div className="w-full py-16 px-4 md:px-10 bg-[#020b0a] text-white red lg:mt-10">
+    <div className="w-full py-16 px-4 md:px-10 bg-[#020b0a] text-white  lg:mt-10">
       {/* Header */}
       <div className="text-center mb-14 ">
         <h2 className="text-3xl md:text-4xl font-semibold gradient-text">
