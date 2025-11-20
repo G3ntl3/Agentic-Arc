@@ -10,13 +10,13 @@ import "swiper/css/navigation";
 import "./Slide.css";
 
 // Video imports
-import slide_image_1 from "../assets/vids/arc.mp4";
-import slide_image_2 from "../assets/vids/mega.mp4";
-import slide_image_3 from "../assets/vids/arc.mp4";
-import slide_image_4 from "../assets/vids/arc.mp4";
-import slide_image_5 from "../assets/vids/arc.mp4";
-import slide_image_6 from "../assets/vids/arc.mp4";
-import slide_image_7 from "../assets/vids/arc.mp4";
+import slide_image_1 from "../assets/images/img_2.jpg";
+import slide_image_2 from "../assets/images/img_2.jpg";
+import slide_image_3 from "../assets/images/img_2.jpg";
+import slide_image_4 from "../assets/images/img_2.jpg";
+import slide_image_5 from "../assets/images/img_2.jpg";
+import slide_image_6 from "../assets/images/img_2.jpg";
+import slide_image_7 from "../assets/images/img_2.jpg";
 
 const slides = [
   { id: 1, video: slide_image_1 },
@@ -32,7 +32,7 @@ function Slide() {
   return (
     <div
       className="slider-root z-50 bg-cover bg-center bg-no-repeat w-full mt-[-20] overflow-hidden lg:h-screen"
-      style={{ backgroundImage: `url(${shiningbg})` }}
+      
     >
       <div className="container">
         <Swiper
@@ -122,7 +122,7 @@ function Slide() {
             <SwiperSlide key={slide.id}>
               <div className="video-container">
                 <div className="video-wrapper">
-                  <video
+                  <img
                     src={slide.video}
                     className="slide-video"
                     autoPlay

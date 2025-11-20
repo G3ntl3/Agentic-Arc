@@ -45,7 +45,7 @@ const ServiceCard = ({ service }) => {
       className="rounded-2xl overflow-hidden lg:mt-5 flex flex-col justify-between h-full min-h-[500px]"
       style={{
         background:
-          "linear-gradient(180deg, #0a6b51 0%, #022b20 60%, #021b15 100%)",
+                "linear-gradient(90deg, #002A24 0%,  #023B14 100%)",
         border: "1px solid rgba(61,220,151,0.12)",
         boxShadow: "0 12px 40px rgba(2,8,6,0.6)",
         backdropFilter: "blur(6px)",

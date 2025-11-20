@@ -1,9 +1,12 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-
+import basiclogo from "../assets/icon/basic.png";
+import advancedlogo from "../assets/icon/advanced.png";
+import intermediatelogo from "../assets/icon/intermediate.png";
 const plans = [
   {
     title: "Basic",
+    img: basiclogo,
     items: [
       "Basic Introduction To Defi",
       "Agentic Economy",
@@ -13,10 +16,12 @@ const plans = [
   },
   {
     title: "Intermediate",
+    img: intermediatelogo,
     items: ["Neurobro", "Arbus", "Swarm", "Backram"],
   },
   {
     title: "Advanced",
+    img: advancedlogo,
     items: [
       "Using Agents For Their Purpose",
       "Trading",
@@ -46,13 +51,22 @@ const EducationHub = () => {
         {plans.map((plan, i) => (
           <div
             key={i}
-            className="rounded-xl p-8 bg-gradient-to-b from-[#0d302a] to-[#07201c] border border-[#1b5247] shadow-xl"
+            className="rounded-xl p-8 bg-gradient-to-b shadow-xl"
+            style={{
+              background:
+                "linear-gradient(90deg, #002A24 0%,  #023B14 100%)",
+              border: "1px solid rgba(61,220,151,0.12)",
+              boxShadow: "0 12px 40px rgba(2,8,6,0.6)",
+              backdropFilter: "blur(6px)",
+            }}
           >
             {/* Title */}
-            <h3 className="text-xl font-semibold mb-6 text-[#b6ffe2]">
-              {plan.title}
-            </h3>
-
+            <div className="flex flex-row justify-center mb-8 items-center">
+              <img src={plan.img} alt="" className="w-10 mr-2" />
+              <h3 className="text-xl font-semibold  text-[#b6ffe2]">
+                {plan.title}
+              </h3>
+            </div>
             {/* List */}
             <ul className="space-y-4 mb-8">
               {plan.items.map((item, j) => (
@@ -72,9 +86,9 @@ const EducationHub = () => {
                 py-3
                 rounded-full
                 font-medium
-                bg-gradient-to-r from-[#14b57a] to-[#33ffc0]
+                bg-gradient-to-r from-[#25654d] to-[#33ffc0]
                 transition-all duration-300
-                hover:to-[#0e8a5a]
+                hover:to-[#03442b]
                 text-black
                 shadow-lg
               "
