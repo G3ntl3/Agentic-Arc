@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const plans = [
   {
@@ -26,6 +27,8 @@ const plans = [
 ];
 
 const EducationHub = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="w-full py-16 px-4 md:px-10 bg-[#020b0a] text-white  lg:mt-10">
       {/* Header */}
@@ -63,13 +66,14 @@ const EducationHub = () => {
 
             {/* Button */}
             <button
+              onClick={() => navigate(`/${plan.title.toLowerCase()}`)}
               className="
-                w-full 
-                py-3 
-                rounded-full 
-                font-medium 
+                w-full
+                py-3
+                rounded-full
+                font-medium
                 bg-gradient-to-r from-[#14b57a] to-[#33ffc0]
-                transition-all duration-300 
+                transition-all duration-300
                 hover:to-[#0e8a5a]
                 text-black
                 shadow-lg

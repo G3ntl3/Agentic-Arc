@@ -4,6 +4,9 @@ import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'; // Im
 import Navbar from './components/Navbar'; // Adjust path
 import Home from './pages/Home'; // Example pages—add yours
 import EducationHub from './pages/Educationhub';
+import Basic from './pages/Education Hub/Basic';
+import Intermediate from './pages/Education Hub/Intermediate';
+import Advanced from './pages/Education Hub/Advanced';
 import About from './components/About';
 import Services from './components/Services';
 import Footer from './components/Footer';
@@ -22,6 +25,9 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} /> If you have this
           <Route path="/education" element={<EducationHub />} />
+          <Route path="/basic" element={<Basic />} />
+          <Route path="/intermediate" element={<Intermediate />} />
+          <Route path="/advanced" element={<Advanced />} />
           <Route path="/services" element={<Services />} /> {/* If you have this */}
           <Route path="*" element={<div>404: Not Found</div>} /> {/* Optional catch-all */}
         </Routes>
