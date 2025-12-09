@@ -71,7 +71,7 @@ const Basic = () => {
         </div>
       </div>
             <h3 className=" text-xl font-semibold mb-2 text-[#37dca1]">{c.title}</h3>
-            <p className=" text text-white text-sm leading-relaxed text-[#37dca1]">
+            <p className=" text text- text-sm leading-relaxed text-[#37dca1]">
               {c.text}
             </p>
           </div>

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import basiclogo from "../assets/icon/basic.png";
 import advancedlogo from "../assets/icon/advanced.png";
 import intermediatelogo from "../assets/icon/intermediate.png";
+
 const plans = [
   {
     title: "Basic",
@@ -35,9 +36,9 @@ const EducationHub = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="w-full py-16 px-4 md:px-10 bg-[#020b0a] text-white  lg:mt-10">
+    <div className="w-full py-16 px-4 md:px-10 bg-[#020b0a] text-white lg:mt-10">
       {/* Header */}
-      <div className="text-center mb-14 ">
+      <div className="text-center mb-14">
         <h2 className="text-3xl md:text-4xl font-semibold gradient-text">
           Education Hub
         </h2>
@@ -63,7 +64,7 @@ const EducationHub = () => {
             {/* Title */}
             <div className="flex flex-row justify-center mb-8 items-center">
               <img src={plan.img} alt="" className="w-10 mr-2" />
-              <h3 className="text-xl font-semibold  text-[#b6ffe2]">
+              <h3 className="text-xl font-semibold text-[#b6ffe2]">
                 {plan.title}
               </h3>
             </div>
@@ -103,16 +104,22 @@ const EducationHub = () => {
       <div className="text-center mt-14 space-y-3">
         <p className="text-gray-300">
           I Know A Little About Web3{" "}
-          <a href="#" className="text-[#33ffc0] underline">
+          <button 
+            onClick={() => navigate('/intermediate')} 
+            className="text-[#33ffc0] underline hover:text-[#25ffa0] transition-colors"
+          >
             Go to Intermediate
-          </a>
+          </button>
         </p>
 
         <p className="text-gray-300">
           I'm Experienced In Web3{" "}
-          <a href="#" className="text-[#33ffc0] underline">
+          <button 
+            onClick={() => navigate('/advanced')} 
+            className="text-[#33ffc0] underline hover:text-[#25ffa0] transition-colors"
+          >
             Go to Advanced
-          </a>
+          </button>
         </p>
       </div>
     </div>
