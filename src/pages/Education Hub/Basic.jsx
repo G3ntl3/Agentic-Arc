@@ -1,4 +1,5 @@
 import React from "react";
+import RequireAuth from '../../components/RequireAuth';
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import basicimg from '../../assets/img/ai.png'
@@ -39,7 +40,8 @@ const cards = [
 
 const Basic = () => {
   return (
-    <div className="w-full flex flex-col items-center text-center mt-20 mb-10">
+    <RequireAuth>
+      <div className="w-full flex flex-col items-center text-center mt-20 mb-10">
       {/* HEADER */}
       <h2 className="text-2xl md:text-4xl font-semibold text-[#37dca1]">
         Education Hub: Basic Foundations
@@ -114,8 +116,8 @@ const Basic = () => {
           I Am Experienced In Web3 —{" "}
           <a href="#" className="text-blue-300 underline">Go to Advanced</a>
         </p>
-      </div>
-    </div>
+      </div></div>
+    </RequireAuth>
   );
 };
 

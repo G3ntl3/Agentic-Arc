@@ -1,4 +1,5 @@
 import React from 'react';
+import RequireAuth from '../../components/RequireAuth';
 import faceless from '../../assets/sevices/faced.png';
  
 const Intermediate = () => {
@@ -87,7 +88,8 @@ const Intermediate = () => {
   ];
 
   return (
-    <div className="bg-[#0a1f1c] min-h-screen py-10 px-4 sm:px-6 lg:px-20 lg:pt-30 pt-20">
+    <RequireAuth>
+      <div className="bg-[#0a1f1c] min-h-screen py-10 px-4 sm:px-6 lg:px-20 lg:pt-30 pt-20">
       {/* Header */}
       <div className="text-center mb-10">
         <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#00e6a5] mb-2">
@@ -157,7 +159,8 @@ const Intermediate = () => {
           </div>
         ))}
       </div>
-    </div>
+      </div>
+    </RequireAuth>
   );
 };
 

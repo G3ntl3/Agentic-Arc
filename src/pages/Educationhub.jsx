@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { usePrivy } from '@privy-io/react-auth';
 import basiclogo from "../assets/icon/basic.png";
 import advancedlogo from "../assets/icon/advanced.png";
 import intermediatelogo from "../assets/icon/intermediate.png";
@@ -34,6 +35,7 @@ const plans = [
 
 const EducationHub = () => {
   const navigate = useNavigate();
+  const { authenticated, login, ready } = usePrivy();
 
   return (
     <div className="w-full py-16 px-4 md:px-10 bg-[#020b0a] text-white lg:mt-10">
@@ -81,7 +83,11 @@ const EducationHub = () => {
 
             {/* Button */}
             <button
-              onClick={() => navigate(`/${plan.title.toLowerCase()}`)}
+              onClick={() => {
+                if (!ready) return;
+                if (!authenticated) return login();
+                navigate(`/${plan.title.toLowerCase()}`)
+              }}
               className="
                 w-full
                 py-3
@@ -105,7 +111,11 @@ const EducationHub = () => {
         <p className="text-gray-300">
           I Know A Little About Web3{" "}
           <button 
-            onClick={() => navigate('/intermediate')} 
+            onClick={() => {
+              if (!ready) return;
+              if (!authenticated) return login();
+              navigate('/intermediate')
+            }} 
             className="text-[#33ffc0] underline hover:text-[#25ffa0] transition-colors"
           >
             Go to Intermediate
@@ -115,7 +125,11 @@ const EducationHub = () => {
         <p className="text-gray-300">
           I'm Experienced In Web3{" "}
           <button 
-            onClick={() => navigate('/advanced')} 
+            onClick={() => {
+              if (!ready) return;
+              if (!authenticated) return login();
+              navigate('/advanced')
+            }} 
             className="text-[#33ffc0] underline hover:text-[#25ffa0] transition-colors"
           >
             Go to Advanced
