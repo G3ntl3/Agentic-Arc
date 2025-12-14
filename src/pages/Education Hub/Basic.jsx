@@ -2,6 +2,8 @@ import React from "react";
 import RequireAuth from '../../components/RequireAuth';
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import { useNavigate } from "react-router-dom";
+import { usePrivy } from "@privy-io/react-auth";
 import basicimg from '../../assets/img/ai.png'
 const cardStyle = {
   background: "linear-gradient(90deg, #002A24 0%,  #023B14 100%)",
@@ -39,6 +41,8 @@ const cards = [
 ];
 
 const Basic = () => {
+      const navigate = useNavigate();
+  const { authenticated, login, ready } = usePrivy();
   return (
     <RequireAuth>
       <div className="w-full flex flex-col items-center text-center mt-20 mb-10">
@@ -106,15 +110,34 @@ const Basic = () => {
         </Swiper>
       </div>
 
-      {/* FOOTER LINKS */}
-      <div className="mt-12">
-        <p className="text-white text-sm mb-2">
-          I'm A Complete Beginner —{" "}
-          <a href="#" className="text-blue-300 underline">Go to Basics</a>
+      <div className="text-center mt-14 space-y-3">
+        <p className="text-gray-300">
+          I Know A Little About Web3{" "}
+          <button 
+            onClick={() => {
+              if (!ready) return;
+              if (!authenticated) return login();
+                navigate(`/intermediate`)
+
+            }} 
+            className="text-[#33ffc0] underline hover:text-[#25ffa0] transition-colors"
+          >
+            Go to Intermediate
+          </button>
         </p>
-        <p className="text-white text-sm">
-          I Am Experienced In Web3 —{" "}
-          <a href="#" className="text-blue-300 underline">Go to Advanced</a>
+
+        <p className="text-gray-300">
+         I Am Experienced In Web3{" "}
+          <button 
+            onClick={() => {
+              if (!ready) return;
+              if (!authenticated) return login();
+              navigate('/advanced')
+            }} 
+            className="text-[#33ffc0] underline hover:text-[#25ffa0] transition-colors"
+          >
+            Go to advanced
+          </button>
         </p>
       </div></div>
     </RequireAuth>

@@ -4,7 +4,7 @@ import { usePrivy } from '@privy-io/react-auth';
 import basiclogo from "../assets/icon/basic.png";
 import advancedlogo from "../assets/icon/advanced.png";
 import intermediatelogo from "../assets/icon/intermediate.png";
-
+// import NotepadWidget from "../components/NotepadWidget";
 const plans = [
   {
     title: "Basic",
@@ -38,6 +38,9 @@ const EducationHub = () => {
   const { authenticated, login, ready } = usePrivy();
 
   return (
+    <>
+    {/* <NotepadWidget/> */}
+    
     <div className="w-full py-16 px-4 md:px-10 bg-[#020b0a] text-white lg:mt-10">
       {/* Header */}
       <div className="text-center mb-14">
@@ -92,7 +95,7 @@ const EducationHub = () => {
                 w-full
                 py-3
                 rounded-full
-                font-medium
+                font-medium cursor-pointer
                 bg-gradient-to-r from-[#25654d] to-[#33ffc0]
                 transition-all duration-300
                 hover:to-[#03442b]
@@ -136,7 +139,7 @@ const EducationHub = () => {
           </button>
         </p>
       </div>
-    </div>
+    </div></>
   );
 };
 

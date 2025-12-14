@@ -2,7 +2,11 @@ import React from 'react';
 import RequireAuth from '../../components/RequireAuth';
 import faceless from '../../assets/sevices/faced.png';
  
+import { useNavigate } from "react-router-dom";
+import { usePrivy } from "@privy-io/react-auth";
 const Intermediate = () => {
+      const navigate = useNavigate();
+  const { authenticated, login, ready } = usePrivy();
   const courses = [
     {
       id: 1,
@@ -158,6 +162,36 @@ const Intermediate = () => {
             </div>
           </div>
         ))}
+      </div>
+        <div className="text-center mt-14 space-y-3">
+        <p className="text-gray-300">
+          I am a complete beginner{" "}
+          <button 
+            onClick={() => {
+              if (!ready) return;
+              if (!authenticated) return login();
+                navigate(`/basic`)
+
+            }} 
+            className="text-[#33ffc0] underline hover:text-[#25ffa0] transition-colors"
+          >
+            Go to Basic 
+          </button>
+        </p>
+
+        <p className="text-gray-300">
+         I Am Experienced In Web3{" "}
+          <button 
+            onClick={() => {
+              if (!ready) return;
+              if (!authenticated) return login();
+              navigate('/advanced')
+            }} 
+            className="text-[#33ffc0] underline hover:text-[#25ffa0] transition-colors"
+          >
+            Go to advanced
+          </button>
+        </p>
       </div>
       </div>
     </RequireAuth>

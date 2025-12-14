@@ -10,6 +10,7 @@ import Advanced from './pages/Education Hub/Advanced';
 import About from './components/About';
 import Services from './components/Services';
 import Footer from './components/Footer';
+import NotepadWidget from './components/NotepadWidget';
 
 // ... other imports
 
@@ -19,7 +20,7 @@ function App() {
     <Router> {/* Wrap here—Navbar and Routes become children */}
       <div className="App">
         <Navbar /> {/* Now in Router context */}
-        
+        <NotepadWidget/>
         {/* Your Routes—add all pages here */}
         <Routes>
           <Route path="/" element={<Home />} />
