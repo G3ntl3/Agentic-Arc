@@ -1,8 +1,7 @@
 import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import Underline from "@tiptap/extension-underline";
-import TextStyle from "@tiptap/extension-text-style";
-import Color from "@tiptap/extension-color";
+ import Color from "@tiptap/extension-color";
 import Highlight from "@tiptap/extension-highlight";
 import Placeholder from "@tiptap/extension-placeholder";
 
@@ -11,7 +10,6 @@ const TipTapEditor = ({ content, onChange }) => {
     extensions: [
       StarterKit,
       Underline,
-      TextStyle,
       Color,
       Highlight,
       Placeholder.configure({
