@@ -12,6 +12,7 @@ import Services from './components/Services';
 import Footer from './components/Footer';
 import NotepadWidget from './components/NotepadWidget';
 
+// import Tiptap from './components/Tiptap';
 // ... other imports
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
     <Router> {/* Wrap here—Navbar and Routes become children */}
       <div className="App">
         <Navbar /> {/* Now in Router context */}
-        <NotepadWidget/>
+     
         {/* Your Routes—add all pages here */}
         <Routes>
           <Route path="/" element={<Home />} />

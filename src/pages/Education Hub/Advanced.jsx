@@ -9,6 +9,7 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import { useNavigate } from "react-router-dom";
 import { usePrivy } from "@privy-io/react-auth";
+import FloatingNote from "../../components/FloatingNote/FloatingNote";
 
 const cardStyle = {
   background: "linear-gradient(90deg, #002A24 0%, #023B14 100%)",
@@ -39,6 +40,7 @@ const Advanced = () => {
   const { authenticated, login, ready } = usePrivy();
   return (
     <RequireAuth>
+      <FloatingNote/>
     <div className="w-full my-30 px-4 md:px-0 ">
        <div className="text-center mb-10">
               <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#00e6a5] mb-2">
