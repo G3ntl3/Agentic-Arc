@@ -10,9 +10,9 @@ const FloatingNote = () => {
       {/* Floating button */}
       <button
         onClick={() => setOpen(!open)}
-        className="fixed bottom-6 right-6 z-50 bg-green-500 text-black px-4 py-2 rounded-full shadow-lg"
+        className="fixed text-3xl bottom-6 right-6 z-50 bg-green-500 text-white p-3 rounded-full shadow-lg"
       >
-        Notes
+        ✎
       </button>
 
       {/* Note panel */}
